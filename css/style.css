@@ -142,22 +142,14 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   gap: 12px;
 }
 .brand-mark { width: 40px; height: 40px; flex-shrink: 0; }
-.brand-word { font-family: var(--font-logo); line-height: 1; }
-.brand-word b {
-  display: block;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: .09em;
-  color: var(--black);
+.brand-word {
+  width: 126px;
+  height: 45px;
+  flex-shrink: 0;
+  background: url('../images/logo/salizra-logo-full.png') center -127px / 126px auto no-repeat;
+  font-size: 0;
 }
-.brand-word span {
-  display: block;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  color: var(--orange-deep);
-  text-transform: uppercase;
-}
+.brand-word b, .brand-word span { display: none; }
 
 .nav-links {
   display: flex;
@@ -807,8 +799,14 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   border-bottom: 1px solid rgba(255,255,255,.12);
 }
 .footer-brand { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
-.footer-brand b { font-family: var(--font-display); color: var(--white); font-size: 17px; }
-.footer-brand span { display: block; font-size: 9px; letter-spacing: .16em; color: var(--orange); text-transform: uppercase; font-weight: 700;}
+.footer-brand > span {
+  width: 126px;
+  height: 45px;
+  flex-shrink: 0;
+  background: url('../images/logo/salizra-logo-full-white.png') center -127px / 126px auto no-repeat;
+  font-size: 0;
+}
+.footer-brand > span b, .footer-brand > span > span { display: none; }
 .footer-col h5 {
   font-family: var(--font-display);
   color: var(--white);

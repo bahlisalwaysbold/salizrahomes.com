@@ -106,21 +106,16 @@ body.preloading { overflow: hidden; height: 100vh; }
 }
 
 .preloader-word {
-  font-family: var(--font-logo);
+  width: 180px;
+  height: 67px;
+  background: url('../images/logo/salizra-logo-full-white.png') center -181px / 180px auto no-repeat;
   color: var(--white);
-  font-size: 16px;
-  letter-spacing: .14em;
-  font-weight: 600;
+  font-size: 0;
   text-align: center;
   animation: wordPulse 1.9s ease-in-out infinite;
 }
 .preloader-word span {
-  display: block;
-  font-size: 11px;
-  letter-spacing: .12em;
-  color: var(--orange);
-  font-weight: 600;
-  margin-top: 5px;
+  display: none;
 }
 @keyframes wordPulse { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
 
