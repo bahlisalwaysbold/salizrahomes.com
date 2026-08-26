@@ -22,6 +22,7 @@
 
   --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
   --font-body:    'Inter', 'Segoe UI', sans-serif;
+  --font-logo:    'Oswald', 'Arial Narrow', sans-serif;
 
   --container: 1180px;
   --radius: 2px;
@@ -141,19 +142,19 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   gap: 12px;
 }
 .brand-mark { width: 40px; height: 40px; flex-shrink: 0; }
-.brand-word { font-family: var(--font-display); line-height: 1.05; }
+.brand-word { font-family: var(--font-logo); line-height: 1; }
 .brand-word b {
   display: block;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: .04em;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: .09em;
   color: var(--black);
 }
 .brand-word span {
   display: block;
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: .18em;
+  letter-spacing: .12em;
   color: var(--orange-deep);
   text-transform: uppercase;
 }

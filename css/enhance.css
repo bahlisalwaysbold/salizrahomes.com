@@ -106,18 +106,18 @@ body.preloading { overflow: hidden; height: 100vh; }
 }
 
 .preloader-word {
-  font-family: var(--font-display);
+  font-family: var(--font-logo);
   color: var(--white);
-  font-size: 13px;
-  letter-spacing: .32em;
-  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .14em;
+  font-weight: 600;
   text-align: center;
   animation: wordPulse 1.9s ease-in-out infinite;
 }
 .preloader-word span {
   display: block;
-  font-size: 9px;
-  letter-spacing: .26em;
+  font-size: 11px;
+  letter-spacing: .12em;
   color: var(--orange);
   font-weight: 600;
   margin-top: 5px;
