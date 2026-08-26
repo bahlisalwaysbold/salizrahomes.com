@@ -36,8 +36,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------- Homepage background rotation ---------- */
-  var heroBackground = document.querySelector('.hero-background');
-  if (heroBackground) {
+  var heroBackgroundCurrent = document.querySelector('.hero-background-current');
+  var heroBackgroundNext = document.querySelector('.hero-background-next');
+  if (heroBackgroundCurrent && heroBackgroundNext) {
     var heroImages = [
       'images/background images for homepage/morning.jpg',
       'images/background images for homepage/dawn.jpg',
@@ -47,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
       'images/background images for homepage/631770653957857832.jpg'
     ];
     var heroIndex = 0;
+    var activeBackground = heroBackgroundCurrent;
+    var inactiveBackground = heroBackgroundNext;
 
     heroImages.forEach(function (src) {
       var image = new Image();
@@ -55,10 +58,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setInterval(function () {
       heroIndex = (heroIndex + 1) % heroImages.length;
-      heroBackground.style.opacity = '0';
+      inactiveBackground.style.backgroundImage = "url('" + heroImages[heroIndex] + "')";
+      inactiveBackground.style.opacity = '1';
+      activeBackground.style.opacity = '0';
       setTimeout(function () {
-        heroBackground.style.backgroundImage = "url('" + heroImages[heroIndex] + "')";
-        heroBackground.style.opacity = '1';
+        var previousActive = activeBackground;
+        activeBackground = inactiveBackground;
+        inactiveBackground = previousActive;
       }, 800);
     }, 6000);
   }
