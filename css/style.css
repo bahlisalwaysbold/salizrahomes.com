@@ -143,10 +143,10 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 }
 .brand-mark { width: 40px; height: 40px; flex-shrink: 0; }
 .brand-word {
-  width: 108px;
-  height: 39px;
+  width: 90px;
+  height: 32px;
   flex-shrink: 0;
-  background: url('../images/logo/salizra-logo-full.png') center -109px / 108px auto no-repeat;
+  background: url('../images/logo/salizra-logo-full.png') center -91px / 90px auto no-repeat;
   font-size: 0;
 }
 .brand-word b, .brand-word span { display: none; }
@@ -800,10 +800,10 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 }
 .footer-brand { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
 .footer-brand > span {
-  width: 108px;
-  height: 39px;
+  width: 90px;
+  height: 32px;
   flex-shrink: 0;
-  background: url('../images/logo/salizra-logo-full-white.png') center -109px / 108px auto no-repeat;
+  background: url('../images/logo/salizra-logo-full-white.png') center -91px / 90px auto no-repeat;
   font-size: 0;
 }
 .footer-brand > span b, .footer-brand > span > span { display: none; }
