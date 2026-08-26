@@ -300,29 +300,46 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 
 .hero-mark-wrap {
   position: relative;
+  min-height: clamp(320px, 42vw, 520px);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  background: url('../images/background images for homepage/morning.jpg') center 42% / cover no-repeat;
+  filter: saturate(.72);
+}
+.hero-mark-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  background: inherit;
+  filter: blur(8px);
+  transform: scale(1.06);
+}
+.hero-mark-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(15,13,11,.45), rgba(15,13,11,.12) 58%, rgba(15,13,11,.34));
+  border: 1px solid rgba(15,13,11,.14);
 }
 .hero-mark {
   width: min(360px, 100%);
   height: auto;
 }
-.hero-mark-plate {
-  position: relative;
-  background: var(--black);
-  padding: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.hero-mark-plate::before {
-  content: '';
-  position: absolute; inset: 14px;
-  border: 1px solid rgba(255,255,255,.14);
-}
 .corner-ticks::before, .corner-ticks::after,
 .corner-ticks .tick-br, .corner-ticks .tick-bl { }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-mark-wrap { min-height: clamp(250px, 52vw, 360px); }
+}
+
+@media (max-width: 560px) {
+  .hero { padding: 82px 0 72px; }
+  .hero-grid { gap: 32px; }
+  .hero-mark-wrap { min-height: 230px; }
+}
 
 /* =========================================================
    CHEVRON DIVIDER — echoes the roofline in the logo
