@@ -383,6 +383,9 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   gap: 64px;
   align-items: center;
 }
+@media (max-width: 860px) {
+  .about-teaser { grid-template-columns: 1fr; gap: 40px; }
+}
 .founder-card {
   background: var(--paper);
   border: 1px solid var(--line);
