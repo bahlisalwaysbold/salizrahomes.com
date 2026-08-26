@@ -35,6 +35,34 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  /* ---------- Homepage background rotation ---------- */
+  var heroBackground = document.querySelector('.hero-background');
+  if (heroBackground) {
+    var heroImages = [
+      'images/background images for homepage/morning.jpg',
+      'images/background images for homepage/dawn.jpg',
+      'images/background images for homepage/fajr.jpg',
+      'images/background images for homepage/sunset.jpg',
+      'images/background images for homepage/night.jpg',
+      'images/background images for homepage/631770653957857832.jpg'
+    ];
+    var heroIndex = 0;
+
+    heroImages.forEach(function (src) {
+      var image = new Image();
+      image.src = src;
+    });
+
+    setInterval(function () {
+      heroIndex = (heroIndex + 1) % heroImages.length;
+      heroBackground.style.opacity = '0';
+      setTimeout(function () {
+        heroBackground.style.backgroundImage = "url('" + heroImages[heroIndex] + "')";
+        heroBackground.style.opacity = '1';
+      }, 800);
+    }, 6000);
+  }
+
   /* ---------- Footer year ---------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
