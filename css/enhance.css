@@ -106,9 +106,9 @@ body.preloading { overflow: hidden; height: 100vh; }
 }
 
 .preloader-word {
-  width: 180px;
-  height: 67px;
-  background: url('../images/logo/salizra-logo-full-white.png') center -181px / 180px auto no-repeat;
+  width: 150px;
+  height: 56px;
+  background: url('../images/logo/salizra-logo-full-white.png') center -151px / 150px auto no-repeat;
   color: var(--white);
   font-size: 0;
   text-align: center;
