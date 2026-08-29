@@ -1,0 +1,164 @@
+<!--
+  TEAM HOVER CARDS
+  -----------------
+  WHERE TO PUT IT: about.html, replacing your current team block.
+
+  BEHAVIOR:
+  - Hover a photo -> it zooms in slightly, a dark overlay fades in
+    with WhatsApp + Call icons (working links, tap to actually
+    message/call that person).
+  - A three-dot button appears in the top-right corner of the photo.
+    Tapping it opens a small popover with that person's credentials
+    (COREN, NSE, CAC, qualifications, bio) — no page navigation,
+    no big panel taking over the screen.
+  - On mobile (no hover), the icons + dots button show automatically
+    when you tap/focus the card.
+
+  EDITING: change the data-* attributes on each .tm-card. Leave a
+  value empty ("") to have that row skipped automatically.
+
+  Make sure team-hover-cards.css is linked in the <head>:
+    <link rel="stylesheet" href="css/team-hover-cards.css">
+-->
+
+<div class="tm-grid">
+
+  <!-- ============ ONE TEAM MEMBER (repeat this whole block per person) ============ -->
+  <div class="tm-card">
+    <div class="tm-photo-wrap">
+      <img class="tm-photo" src="images/team/salisu-sumaila.jpg" alt="Engr. Salisu Sumaila">
+
+      <div class="tm-overlay">
+        <a class="tm-icon-btn" href="https://wa.me/2347038101928" target="_blank" rel="noopener noreferrer" aria-label="Message on WhatsApp">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.362.687 4.564 1.874 6.417L4 29l7.771-1.84A11.94 11.94 0 0 0 16.001 27C22.628 27 28 21.627 28 15S22.628 3 16.001 3zm0 21.818a9.77 9.77 0 0 1-4.98-1.362l-.357-.212-4.61 1.092 1.127-4.494-.233-.368A9.78 9.78 0 0 1 6.18 15c0-5.417 4.404-9.818 9.82-9.818 5.417 0 9.818 4.401 9.818 9.818 0 5.417-4.401 9.818-9.818 9.818zm5.377-7.343c-.294-.147-1.744-.86-2.014-.958-.27-.098-.467-.147-.663.147-.196.294-.76.958-.932 1.155-.172.196-.343.221-.637.074-.294-.147-1.242-.458-2.365-1.461-.874-.78-1.464-1.744-1.636-2.038-.172-.294-.018-.453.129-.6.132-.132.294-.343.441-.514.147-.172.196-.294.294-.49.098-.196.049-.368-.025-.514-.074-.147-.663-1.6-.909-2.192-.239-.575-.483-.497-.663-.506l-.564-.01c-.196 0-.514.074-.784.368-.27.294-1.03 1.007-1.03 2.454s1.055 2.846 1.202 3.043c.147.196 2.077 3.171 5.032 4.446.703.303 1.251.484 1.679.62.706.224 1.348.192 1.856.117.566-.085 1.744-.713 1.99-1.402.246-.69.246-1.28.172-1.402-.074-.123-.27-.196-.564-.343z"/>
+          </svg>
+        </a>
+        <a class="tm-icon-btn" href="tel:+2347038101928" aria-label="Call">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
+          </svg>
+        </a>
+      </div>
+
+      <button
+        class="tm-dots-btn"
+        aria-label="View credentials"
+        aria-expanded="false"
+        data-name="Engr. Salisu Sumaila"
+        data-title="Managing Director / CEO"
+        data-coren="COREN Reg. No: [insert real number]"
+        data-nse="NSE Member: [insert if applicable]"
+        data-cac="Company Reg: RC 1736628"
+        data-qualification="[e.g. B.Eng Civil Engineering — insert university]"
+        data-experience="[e.g. 12+ years in structural detailing and building construction]"
+        data-bio="[2-3 sentences on what he leads day-to-day and notable projects.]"
+        data-verify-url="https://coren.gov.ng/verify"
+      >
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/>
+        </svg>
+      </button>
+
+      <div class="tm-popover">
+        <p class="tm-popover-title">Registrations</p>
+        <div class="tm-cred-list"><!-- filled by JS --></div>
+        <p class="tm-popover-bio"></p>
+        <a class="tm-popover-verify" href="#" target="_blank" rel="noopener noreferrer">Verify on COREN →</a>
+      </div>
+    </div>
+
+    <div class="tm-info">
+      <p class="tm-name">Engr. Salisu Sumaila</p>
+      <p class="tm-title">Managing Director / CEO</p>
+    </div>
+  </div>
+  <!-- ============ END one team member — copy the block above for each additional person ============ -->
+
+</div>
+
+<script>
+(function () {
+  document.querySelectorAll('.tm-dots-btn').forEach(function (btn) {
+    const card = btn.closest('.tm-card');
+    const popover = card.querySelector('.tm-popover');
+    const credList = popover.querySelector('.tm-cred-list');
+    const bioEl = popover.querySelector('.tm-popover-bio');
+    const verifyEl = popover.querySelector('.tm-popover-verify');
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const isOpen = popover.classList.contains('tm-open');
+
+      // close any other open popovers first
+      document.querySelectorAll('.tm-popover.tm-open').forEach(function (p) {
+        p.classList.remove('tm-open');
+      });
+      document.querySelectorAll('.tm-dots-btn.tm-active').forEach(function (b) {
+        b.classList.remove('tm-active');
+        b.setAttribute('aria-expanded', 'false');
+      });
+
+      if (isOpen) return; // it was open, we just closed it above
+
+      // fill in this person's data
+      const rows = [
+        ['COREN Registration', btn.dataset.coren],
+        ['NSE Membership', btn.dataset.nse],
+        ['Company Registration', btn.dataset.cac],
+        ['Qualification', btn.dataset.qualification],
+        ['Experience', btn.dataset.experience]
+      ];
+      credList.innerHTML = rows
+        .filter(([, value]) => value && value.trim() !== '')
+        .map(([label, value]) => `
+          <div class="tm-cred-row">
+            <span class="tm-cred-label">${label}</span>
+            <span class="tm-cred-value">${value}</span>
+          </div>
+        `).join('');
+
+      bioEl.textContent = btn.dataset.bio || '';
+
+      if (btn.dataset.verifyUrl) {
+        verifyEl.href = btn.dataset.verifyUrl;
+        verifyEl.style.display = 'inline-block';
+      } else {
+        verifyEl.style.display = 'none';
+      }
+
+      popover.classList.add('tm-open');
+      btn.classList.add('tm-active');
+      btn.setAttribute('aria-expanded', 'true');
+    });
+  });
+
+  // click anywhere outside a popover closes it
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.tm-popover.tm-open').forEach(function (p) {
+      p.classList.remove('tm-open');
+    });
+    document.querySelectorAll('.tm-dots-btn.tm-active').forEach(function (b) {
+      b.classList.remove('tm-active');
+      b.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // stop clicks inside the popover from closing it immediately
+  document.querySelectorAll('.tm-popover').forEach(function (p) {
+    p.addEventListener('click', function (e) { e.stopPropagation(); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.tm-popover.tm-open').forEach(function (p) {
+        p.classList.remove('tm-open');
+      });
+      document.querySelectorAll('.tm-dots-btn.tm-active').forEach(function (b) {
+        b.classList.remove('tm-active');
+        b.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+})();
+</script>
