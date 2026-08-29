@@ -1,0 +1,107 @@
+/* ===== Quote Request Form =====
+   Neutral styling so it can sit inside your existing contact.html
+   without clashing. Swap the colors below for your real brand colors.
+*/
+
+:root {
+  --qf-accent: #1a2b3c;      /* replace with your site's primary/dark color */
+  --qf-accent-light: #f4f6f8;
+  --qf-text: #1f2937;
+  --qf-border: #d1d5db;
+  --qf-radius: 8px;
+}
+
+.qf-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: #ffffff;
+  border: 1px solid var(--qf-border);
+  border-radius: var(--qf-radius);
+}
+
+.qf-wrapper h2 {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+  color: var(--qf-text);
+}
+
+.qf-wrapper p.qf-sub {
+  margin-bottom: 24px;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.qf-field {
+  margin-bottom: 18px;
+}
+
+.qf-field label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--qf-text);
+}
+
+.qf-field input,
+.qf-field select,
+.qf-field textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--qf-border);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--qf-text);
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.qf-field input:focus,
+.qf-field select:focus,
+.qf-field textarea:focus {
+  outline: none;
+  border-color: var(--qf-accent);
+  box-shadow: 0 0 0 3px rgba(26, 43, 60, 0.1);
+}
+
+.qf-row {
+  display: flex;
+  gap: 16px;
+}
+
+.qf-row .qf-field {
+  flex: 1;
+}
+
+@media (max-width: 560px) {
+  .qf-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.qf-submit {
+  width: 100%;
+  padding: 13px 20px;
+  background: var(--qf-accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.qf-submit:hover {
+  opacity: 0.9;
+}
+
+.qf-note {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-align: center;
+}

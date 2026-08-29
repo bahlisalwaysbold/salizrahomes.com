@@ -1,0 +1,70 @@
+/* ===== Floating WhatsApp Button =====
+   Sits on every page, bottom-right, above all content.
+   Adjust --wa-color to match your brand accent if you want it less "WhatsApp green".
+*/
+
+:root {
+  --wa-color: #25D366;
+  --wa-color-dark: #1EBE5A;
+}
+
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--wa-color);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+}
+
+.wa-float:hover {
+  background: var(--wa-color-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.wa-float svg {
+  width: 30px;
+  height: 30px;
+  fill: #ffffff;
+}
+
+/* Small "message us" tooltip that appears on hover (desktop only) */
+.wa-float .wa-tooltip {
+  position: absolute;
+  right: 68px;
+  background: #111827;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.wa-float:hover .wa-tooltip {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .wa-float {
+    bottom: 16px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+  }
+  .wa-float .wa-tooltip {
+    display: none; /* skip tooltip on mobile, thumb already knows what it is */
+  }
+}
